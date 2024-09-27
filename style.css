@@ -39,7 +39,7 @@ h1 {
 }
 
 .input-group div {
-    flex: 1 1 calc(33% - 0.9rem); /* Força os inputs a ocuparem 50% do espaço */
+    flex: 1 1 calc(33% - 0.9rem);
 }
 
 .input-1, .input-2 {
@@ -74,14 +74,14 @@ textarea {
 .erro {
     color: rgb(255, 43, 43);
     font-size: 0.85rem;
-    visibility: hidden; /* Muda para visibility: hidden */
-    min-height: 1.2rem; /* Define a altura mínima da mensagem de erro */
+    visibility: hidden;
+    min-height: 1.2rem;
     margin-left: 0.3rem;
 }
     
 
 .erro.visible {
-    visibility: visible; /* Mostra o erro quando a classe 'visible' é adicionada */
+    visibility: visible;
 }
 
 .senha-group {
