@@ -5,6 +5,7 @@ const confirmarSenhaInput = document.getElementById('confirmar');
 const dataInput = document.getElementById('data')
 const mostrarSenha = document.getElementById('revelarSenha')
 const mostrarSenhaConfirmar = document.getElementById('revelarSenhaConfirmar')
+const cidadeSelect = document.getElementById('cidade')
 
 mostrarSenha.addEventListener('click', () => {
     const type = senhaInput.getAttribute('type') === 'password' ? 'text' : 'password';
@@ -35,21 +36,33 @@ telefoneInput.addEventListener('input', function (e) {
         .replace(/(\d{5})(\d)/, '$1-$2');
 
     e.target.value = value;
-    validateTelefone();
+    validareTelefone();
 });
 
-emailInput.addEventListener('input', validateEmail);
+emailInput.addEventListener('input', validareEmail);
 
 senhaInput.addEventListener('input', function () {
-    validateSenha();
-    validateConfirmarSenha();
+    validareSenha();
+    validareConfirmarSenha();
 });
 
-confirmarSenhaInput.addEventListener('input', validateConfirmarSenha);
+confirmarSenhaInput.addEventListener('input', validareConfirmarSenha);
 
-dataInput.addEventListener('input', validateDate);
+dataInput.addEventListener('input', validarData);
 
-function validateDate() {
+cidadeSelect.addEventListener('change', mudarEstado)
+
+function mudarEstado() {
+    const cidadeSelecionada = this.options[this.selectedIndex];
+    const estado = cidadeSelecionada.getAttribute('data-estado');
+    if (estado) {
+        document.getElementById('estado').value = estado;
+    } else {
+        document.getElementById('estado').value = "";
+    }
+}
+
+function validarData() {
     const dataErro = document.getElementById('dataErro');
     const dataRegex = /^\d{4}-(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01])$/;
     const inputDateValue = dataInput.value;
@@ -73,7 +86,7 @@ function validateDate() {
     }
 }
 
-function validateEmail() {
+function validareEmail() {
     const emailErro = document.getElementById('emailErro');
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(emailInput.value)) {
@@ -86,7 +99,7 @@ function validateEmail() {
     }
 }
 
-function validateTelefone() {
+function validareTelefone() {
     const telefoneErro = document.getElementById('telefoneErro');
     if (telefoneInput.value.replace(/\D/g, '').length < 11) {
         telefoneErro.textContent = 'Telefone inválido';
@@ -98,7 +111,7 @@ function validateTelefone() {
     }
 }
 
-function validateSenha() {
+function validareSenha() {
     const senha = senhaInput.value;
     const senhaErro = document.getElementById('senhaErro');
 
@@ -114,7 +127,7 @@ function validateSenha() {
     }
 }
 
-function validateConfirmarSenha() {
+function validareConfirmarSenha() {
     const confirmarErro = document.getElementById('confirmarErro');
     if (senhaInput.value !== confirmarSenhaInput.value) {
         confirmarErro.textContent = 'As senhas não coincidem.';
@@ -130,10 +143,10 @@ function validateConfirmarSenha() {
 document.getElementById('form').addEventListener('submit', function (e) {
     e.preventDefault();
 
-    const isEmailValid = validateEmail();
-    const isTelefoneValid = validateTelefone();
-    const isSenhaValid = validateSenha();
-    const isConfirmarSenhaValid = validateConfirmarSenha();
+    const isEmailValid = validareEmail();
+    const isTelefoneValid = validareTelefone();
+    const isSenhaValid = validareSenha();
+    const isConfirmarSenhaValid = validareConfirmarSenha();
 
     if (isEmailValid && isTelefoneValid && isSenhaValid && isConfirmarSenhaValid) {
         alert('Formulário enviado com sucesso!');
