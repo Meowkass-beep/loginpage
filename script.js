@@ -143,12 +143,13 @@ function validareConfirmarSenha() {
 document.getElementById('form').addEventListener('submit', function (e) {
     e.preventDefault();
 
-    const isEmailValid = validareEmail();
-    const isTelefoneValid = validareTelefone();
-    const isSenhaValid = validareSenha();
-    const isConfirmarSenhaValid = validareConfirmarSenha();
+    const isEmailValido = validareEmail();
+    const isTelefoneValido = validareTelefone();
+    const isSenhaValida = validareSenha();
+    const isConfirmarSenhaValida = validareConfirmarSenha();
+    const isDataValida = validarData();
 
-    if (isEmailValid && isTelefoneValid && isSenhaValid && isConfirmarSenhaValid) {
+    if (isEmailValido && isTelefoneValido && isSenhaValida && isConfirmarSenhaValida && isDataValida) {
         alert('Formulário enviado com sucesso!');
         e.target.submit();
     } else {
