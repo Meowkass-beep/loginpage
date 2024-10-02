@@ -4,174 +4,38 @@
     padding: 0;
 }
 
-body {
+body{
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background-color: #0D1117;
-    font-family: 'Noto Sans', sans-serif;
-    color: white;
     padding: 1rem;
 }
 
-.form-container {
-    background-color: #151B22;
+#container {
+    background-color: #e6eaf0;
     border: 1px solid #303741;
     border-radius: 1rem;
     padding: 1.5rem;
     width: 100%;
-    max-width: 760px;
+    min-width: 760px;
+    max-width: fit-content;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);
 }
 
-h1 {
-    text-align: center;
-    font-size: 2.5rem;
-    margin-bottom: 1.5rem;
-}
-
-.input-group {
-    margin-bottom: 0.5rem;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.9rem;
-}
-
-.input-group div {
-    flex: 1 1 calc(33% - 0.9rem);
-}
-
-.input-1, .input-2 {
-    display: flex;
-    justify-content: center;
-}
-
 label {
-    font-size: 1rem;
-    margin-bottom: 0.5rem;
-    margin-left: 0.2rem;
+    font-size: 1.5rem;
     display: block;
 }
 
-input[type="password"],
-input[type="text"],
-input[type="email"],
-input[type="tel"],
-input[type="date"],
-select,
-textarea {
-    width: 100%;
-    padding: 0.8rem;
-    background-color: #0D1117;
-    border: 1px solid #303741;
-    border-radius: 0.5rem;
-    color: white;
-    font-size: 1rem;
-    position: relative;
-}
-
-.erro {
-    color: rgb(255, 43, 43);
-    font-size: 0.85rem;
-    visibility: hidden;
-    min-height: 1.2rem;
-    margin-left: 0.3rem;
-}
-    
-
-.erro.visible {
-    visibility: visible;
-}
-
-.senha-group {
-    width: 100%;
-    position: relative;
-}
-
-#revelarSenha {
-    position: absolute;
-    color: #3B903A;
-    right: 10px;
-    top: 8%;
-    transform: translateY(-50%);
-    background-color: transparent;
-    border: none;
-    cursor: pointer;
-    padding: 0;
+input{
+    padding: 0.5rem;
+    border-radius: 0.6rem;
+    border-style: solid;
+    border-color: rgba(0, 0, 0, 0.527);
     font-size: 1rem;
 }
 
-#revelarSenha:hover{
-    color: #2d6f2b;
-}
-
-#revelarSenhaConfirmar {
-    position: absolute;
-    color: #3B903A;
-    right: 10px;
-    top: 62%;
-    transform: translateY(-50%);
-    background-color: transparent;
-    border: none;
-    cursor: pointer;
-    padding: 0;
-    font-size: 1rem;
-}
-
-#revelarSenhaConfirmar:hover{
-    color: #2d6f2b;
-}
-
-
-#senha-section{
+input[type="submit"]{
     margin-bottom: 1rem;
-}
-
-#btn {
-    display: flex;
-    justify-content: center;
-}
-
-#button-submit {
-    background-color: #3B903A;
-    color: white;
-    border: none;
-    padding: 0.8rem;
-    width: 100%;
-    font-size: 1.2rem;
-    border-radius: 0.5rem;
-    cursor: pointer;
-}
-
-#button-submit:hover {
-    background-color: #2d6f2b;
-}
-
-#radio-group {
-    margin-bottom: 1rem;
-}
-
-@media (max-width: 768px) {
-    h1 {
-        font-size: 2rem;
-    }
-
-    input, select, textarea, #button-submit {
-        font-size: 1rem;
-    }
-}
-
-@media (max-width: 480px) {
-    .form-container {
-        padding: 1rem;
-    }
-
-    h1 {
-        font-size: 1.8rem;
-    }
-}
-
-::-webkit-calendar-picker-indicator {
-    filter: invert(1);
 }
